@@ -1,0 +1,32 @@
+body {
+background-color:  #EEEEEE ;
+margin: 8%;
+}
+h1{
+	color: #7AADFF;
+	font-family: "White On Black";
+}
+
+h2{
+color: #7AADFF;
+font-family:"Arial Narrow";
+text-decoration:underline;
+}
+
+p {
+color: black;
+font-family:"Bell MT" ;
+text-transform:capitalize;
+}
+li{
+	list-style-type:circle;
+	color: black;
+font-family:"Bell MT" ;
+}
+h3{
+	color: #8557DC  ;
+font-family:"Engravers MT" ;
+}
+img{
+	border-radius: 10%;
+}
