@@ -1,0 +1,180 @@
+<?php
+$servidor="localhost";
+$usuario="root";
+$clave="";
+$BaseDeDatos="registro";
+
+$enlace=mysql_connect($servidor,$usuario,$clave,$BaseDeDatos);
+if (!$enlace) {
+	echo "Error con la conexion del servidor";
+}
+?>
+
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<meta charset="utf-8"/> 
+	<style>
+		body {
+			background-image: url(mosaico.jpg);
+			background-size: 110%;
+		}
+	</style>
+
+	<link rel="shortcut icon" type="image/x-icon" href="cerebro.jpg">
+<TITLE> NUESTRO CURSO DE RESILENCIA</TITLE>
+<link rel="stylesheet" href="cursoestilo.css">
+</HEAD> 
+<BODY>
+	<font size="4" face="Crafty Beach"><h1 align="center">NUESTRO CURSO DE RESILENCIA</h1></font>
+	<font size="4" face="Agency FB"><h2 align="center">"Fortalece tu persona con Resiliencia emocional"</h2></font>
+	<h3 align="center">Perez Rodriguez Laura Estefania 403</h3> 
+	<center>
+		<input type="image" src="mimarca.jpg" width="530"height="430" ></center><br>
+<form method="get" class="form-register" onsubmit="return validar()">
+		<h2 class="form__titulo">INGRESA TUS DATOS</h2>
+		<div class="contenedor-inputs">
+ 
+ <rigth>
+ 	<h2>Datos Personales </h2>
+ <br>
+       <label >Nombre/s: </label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre/s" class="input-10" required>
+  <br>
+        <label >Apellidos: </label>
+		<input type="text" id="apellidos" name="apellidos" placeholder="Ingresa tus apellidos" class="input-10" required>
+		<br>
+		<label >Fecha de nacimiento: </label>
+		<input type="date" id="nacimiento" name="nacimiento" placeholder="Ingresa tu fecha de nacimiento " class="input-48" required>
+		<br>
+		<label >Email: </label>
+		<input type="email" id="email" name="email" placeholder="Ingresa tu email" class="input-100" required>
+		<br>
+		<br>
+		<label id="genero">Escoge tu sexo: </label>
+		<input type="radio" name="genero"required> Hombre
+		<input type="radio" name="genero"required> Mujer
+		<br>
+		<br>
+		<label >Telefono o celular: </label>
+		<input type="text" id="cel" name="cel" placeholder="Ingresa tus telefono/celular" class="input-48" required>
+	</rigth>
+<br>
+<rigth>
+		<h2>Domicilio</h2>
+		<br>
+		<label >Pais:</label>
+		<input type="text" id="pais" name="pais" placeholder="Ingresa tu Pais" class="input-48" required>
+		<br>
+		<br>
+		<label >Ciudad:</label>
+		<input type="text" id="ciudad" name="ciudad" placeholder="Ingresa tu ciudad" class="input-48" required>
+		<br>
+		<br>
+		<label >Provincia:</label>
+		<input type="text" id="provincia" name="provincia" placeholder="Ingresa tu provincia" class="input-48" required>
+		<br>
+		<br>
+		<label >Direccion:</label>
+		<input type="text" id="direccion" name="direccion" placeholder="Ingresa tu Direccion" class="input-48" required>
+		<br>
+		<br>
+		<label >Codigo postal:</label>
+		<input type="text" id="postal" name="postal" placeholder="Ingresa tu Codigo Postal" class="input-48" required>
+		<br>
+		<br>
+		<label >Registro:</label>
+		<input type="date" id="registro" name="registro"  class="input-100" required>
+		</rigth>
+<br>
+
+<rigth>
+        <h2> Cursos</h2>
+        <br> 
+		<label id="curso" >Habia tomado un curso como este:  </label>
+		<input type="radio"  name="curso"required> SI
+		<input type="radio"  name="curso"required> NO
+		<br>
+		<br>
+		<label for="si">Si lo ha tomado especifique cuales:  </label>
+		<input type="text" id="cuales" name="curso">
+</rigth>	
+<br>
+
+<rigth>
+		<h2> Medio </h2>
+		<br>
+		<label id="medio" for="curso">En donde nos viste:  </label>
+		<input type="radio" name="Facebook"> Facebook
+		<input type="radio" name="Instagram"> Instagram
+		<input type="radio" name="Youtube"> Youtube
+		<input type="radio" name="Recomendado"> Recomendado
+		<input type="radio" name="Otro"> Otro
+</rigth>
+<br>
+<br>
+<rigth>
+		<h2> Interes </h2>
+		<br>
+		<label >Porque quiere tomar este curso:</label>
+		<input type="text" id="interes1" name="interes1" placeholder="Respuesta" class="input-10" required>
+		<br>
+		<br>
+		<label> Que espera de este curso:</label>
+		<input type="text" id="interes2" name="interes2" placeholder="Respuesta" class="input-10" required>
+<br>
+<br>
+</rigth>
+		<p>Dale click al siguiente boton para quedar inscrit@!!!</p>
+		<br>
+		<input type="submit" value="Registrar" class="btn-enviar">
+		<br>
+		<br>
+	</div>
+	</form>
+ 
+</BODY>
+</HTML>
+<?php
+
+if (isset($_get['Registrar'])) {
+	
+$nombre=$_get['nombre'];
+$apellidos=$_get['apellidos'];
+$nacimiento=$_get['nacimiento'];
+$email=$_get['email'];
+$genero=$_get['genero'];
+$cel=$_get['cel'];
+$pais=$_get['pais'];
+$ciudad=$_get['ciudad'];
+$provincia=$_get['provincia'];
+$direccion=$_get['direccion'];
+$postal=$_get['postal'];
+$registro=$_get['registro'];
+$curso=$_get['curso'];
+$medio=$_get['medio'];
+$interes1=$_get['interes1'];
+$interes2=$_get['interes2'];
+$insertarDatos="INSERT INTO datos VALUE('$servidor',
+                                        '$nombre',
+                                        '$apellidos',
+                                        '$nacimiento',
+                                        '$email',
+                                        '$genero',
+                                        '$cel',
+                                        '$pais',
+                                        '$ciudad',
+                                        '$provincia',
+                                        '$direccion',
+                                        '$postal',
+                                        '$registro',
+                                        '$curso',
+                                        '$medio',
+                                        '$interes1',
+                                        '$interes2')";
+$ejecutarInsertar=mysqli_query($enlace,$insertarDatos);
+ if($ejecutarInsertar){
+	echo('Error en la linea sql');
+}
+}
+?>
